@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet">
     <link href="../css/bsH5.css" rel="stylesheet">
 
 
@@ -38,6 +39,11 @@
 <body>
 
     <div class="container">
+        <div id="filter-test">
+            <p class="border-line">AAA</p>
+            <p class="border-line">BBB</p>
+            <p class="border-line">CCC</p>
+        </div>
 
         <!-- Static navbar -->
         <nav class="navbar navbar-default">
@@ -82,6 +88,41 @@
             </div>
             <!--/.container-fluid -->
         </nav>
+
+
+
+
+        <section>
+            <div class="input-group">
+                <div>
+                    <input type="checkbox" value="">策略
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Panel heading</div>
+
+
+                <!-- Table -->
+                <table class="table">
+                    ...
+                </table>
+            </div>
+        </section>
+
+
+        <button name="test">click me,come on!</button>
+        <!-- 树形列表 -->
+        <section>
+            <div id="tree">
+
+            </div>
+        </section>
+
 
         <section>
             <div>
@@ -132,6 +173,26 @@
                 </ul>
             </nav>
         </section>
+
+        <div>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
 
 
@@ -265,6 +326,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="../js/bs-treeview.js"></script>
+
+
     <script src="../js/bs-H5.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
