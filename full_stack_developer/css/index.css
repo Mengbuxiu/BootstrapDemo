@@ -2,18 +2,63 @@
     margin: 0;
     padding: 0;
 } */
+
 /* body{
     height: 600px;
 } */
-body,h1,h2,h3,h4,h5,h6,p,a,input,img,ul,li,ol,dl,dt,dd{padding:0;margin:0;}
-ul,ol{list-style:none;}
-img{display:block;border:0;}
-input{outline:none;}
-header,footer,section,nav{display:block;}
-body{font-size:12px;font-family:"微软雅黑";color:#3e3e3e;}
-a{text-decoration:none;}
-span{display: inline-block;}
-html,body{height: 100%;}
+
+body, h1, h2, h3, h4, h5, h6, p, a, input, img, ul, li, ol, dl, dt, dd {
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    display: block;
+    border: 0;
+}
+
+input {
+    outline: none;
+}
+
+header, footer, section, nav {
+    display: block;
+}
+
+body {
+    font-size: 12px;
+    font-family: "微软雅黑";
+    color: #3e3e3e;
+}
+
+a {
+    text-decoration: none;
+}
+
+span {
+    display: inline-block;
+}
+
+html, body {
+    height: 100%;
+}
+
+#block {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    transition:all 1s;
+    transition-timing-function: ease-in-out;
+}
+
+#block:hover {
+    background: red;
+    width: 200px;
+}
 
 .container {
     width: 900px;
@@ -27,13 +72,15 @@ html,body{height: 100%;}
     background-color: aqua;
     float: left;
 }
+
 .right {
     width: 300px;
     height: 100%;
     background-color: saddlebrown;
     float: right;
-   /* float: left;*/
+    /* float: left;*/
 }
+
 .middle {
     /* width: 300px;*/
     height: 100%;
@@ -47,49 +94,55 @@ body {
 
 .flex3 {
     flex: none;
-    background: linear-gradient(0deg,black,white);
+    background: linear-gradient(0deg, black, white);
     height: 100px;
     width: 250px;
 }
+
 .flex1 {
     flex: 1;
-    background: linear-gradient(0deg,black,white);
-    height: 100px;
-}
-.flex2 {
-    flex: 1;
-    background: linear-gradient(180deg,black,white);
+    background: linear-gradient(0deg, black, white);
     height: 100px;
 }
 
+.flex2 {
+    flex: 1;
+    background: linear-gradient(180deg, black, white);
+    height: 100px;
+}
 
 #change {
     display: none;
 }
-.checkbox input + label {
+
+.checkbox input+label {
     /* background: red; */
     background: url("../img/关闭-007.gif") left center no-repeat;
     background-size: 30px 30px;
     padding-left: 20px;
 }
 
-.checkbox input:checked + label {
+.checkbox input:checked+label {
     /* background:blue; 这个改变的是文字的背景颜色 */
     background: url("../img/关闭-016.gif") left center no-repeat;
 }
-.line_1{
+
+.line_1 {
     width: 100%;
     height: auto;
 }
+
 /* .line_1 > div {
     width: 50%;
     display: inline-block;
 } */
-.line_2 > div {
+
+.line_2>div {
     width: 50%;
     display: inline-block;
 }
-.line_3 > div {
+
+.line_3>div {
     width: 50%;
     display: inline-block;
 }
@@ -98,27 +151,31 @@ body {
     height: 90px;
     background: linear-gradient(to left, green, red);
 }
+
 .line_1_b {
     height: 90px;
     background: linear-gradient(0deg, red, green);
 }
+
 .line_2_a {
     height: 90px;
     background: linear-gradient(to left, green, red);
 }
+
 .line_2_b {
     height: 90px;
     background: linear-gradient(to left, red, green);
 }
+
 .line_3_a {
     height: 90px;
-    background: linear-gradient(0deg,  red, green);
+    background: linear-gradient(0deg, red, green);
 }
+
 .line_3_b {
     height: 90px;
     background: linear-gradient(to right, green, red);
 }
-
 
 .c1 {
     height: 90px;
@@ -127,10 +184,12 @@ body {
     /* 新写法 */
     background: linear-gradient(to right, red, black);
 }
+
 .c2 {
     height: 90px;
     background: linear-gradient(to right, white, black);
 }
+
 .c3 {
     height: 90px;
     background: linear-gradient(to right, black, white);
