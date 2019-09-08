@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
     <span id="app-12">{{ num + 1 }}</span>
     <!-- 指令href和html的href同时存在时，后者优先 -->
     <a id="url" v-bind:href="url" target="_blank">jump</a>
-    <a id="dynamic-url" v-bind:[href]="url"> click to baidu </a>
+    <a id="dynamic-url" v-bind:[href]="url" target="_blank"> click to baidu </a>
 </body>
    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    <script>
@@ -30,7 +30,7 @@
         el: "#dynamic-url",
         data: {
             // attributeName: "href",
-            url: "www.baidu.com"
+            url: "https://www.baidu.com"
         }
     })
 
