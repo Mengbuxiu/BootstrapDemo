@@ -1,18 +1,18 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>vue</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app-9">
-        <span v-once>Message: {{ msg }}</span>
+      <span v-once>Message: {{ msg }}</span>
     </div>
     <div id="app-10">
-        <p>Using mustaches: {{ rawHtml }}</p>
-        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <p>Using mustaches: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
     </div>
     <!-- disable的值可以是null、undefined 或 false,则取消禁用 -->
     <button id="app-11" v-bind:disabled="isButtonDisabled">Button</button>
@@ -20,93 +20,98 @@
     <span id="app-12">{{ num + 1 }}</span>
     <!-- 指令href和html的href同时存在时，后者优先 -->
     <a id="url" v-bind:href="url" target="_blank">jump</a>
-    <a id="dynamic-url" v-bind:[href]="url" target="_blank"> click to baidu </a>
-</body>
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-   <script>
-// --------------------------------指令---------------------------------------------
-    // vue2.6.0新添加动态参数
-    new Vue({
-        el: "#dynamic-url",
-        data: {
-            // attributeName: "href",
-            url: "https://www.baidu.com"
-        }
-    })
 
+    <a id="dynamic-url" v-bind:[href]="url" target="_blank"> click to baidu </a>
+
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // --------------------------------缩写---------------------------------------------
+        // v-
+            // v-bind:href == :href
+            // v-on:click  == @click
+
+
+    // --------------------------------指令---------------------------------------------
+
+     //修饰符 (modifier) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。
+        //例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+            // <form v-on:submit.prevent="onSubmit">...</form>
+    
+    // TODO vue2.6.0新添加动态参数
+    new Vue({
+      el: "#dynamic-url",
+      data: {
+        // attributeName: "href",
+        url: "https://www.baidu.com"
+      }
+    });
 
     // 指令 (Directives) 是带有 v- 前缀的特殊特性。
     // 指令特性的值预期是单个 JavaScript 表达式 (v-for 是例外情况)
     // 指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM
 
-// 参数
+    // 参数
     // 一些指令能够接收一个“参数”，在指令名称之后以冒号表示。
     new Vue({
-        el:"#url",
-        data:{
-            url: "https://www.sina.com.cn/"
-        }
-    })
+      el: "#url",
+      data: {
+        url: "https://www.sina.com.cn/"
+      }
+    });
 
-
-
-
-
-
-
-// --------------------------------插值---------------------------------------------
-       new Vue({
-           el: "#app-12",
-           data: {
-               num:1
-           }
-       })
+    // --------------------------------插值---------------------------------------------
+    new Vue({
+      el: "#app-12",
+      data: {
+        num: 1
+      }
+    });
 
     //  使用 JavaScript 表达式
-        // 数据绑定可以使用javascript表达式,如
-            // {{ number + 1 }}
+    // 数据绑定可以使用javascript表达式,如
+    // {{ number + 1 }}
 
-            // {{ ok ? 'YES' : 'NO' }}
+    // {{ ok ? 'YES' : 'NO' }}
 
-            // {{ message.split('').reverse().join('') }}
+    // {{ message.split('').reverse().join('') }}
 
-            // <div v-bind:id="'list-' + id"></div>
-        // 但是,每个绑定都只能包含单个表达式,也不能是语句或if
+    // <div v-bind:id="'list-' + id"></div>
+    // 但是,每个绑定都只能包含单个表达式,也不能是语句或if
 
     //  特性
-        // Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令
-        // <div v-bind:id="dynamicId"></div>
+    // Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令
+    // <div v-bind:id="dynamicId"></div>
 
-        new Vue({
-            el: "#app-11",
-            data:{
-                isButtonDisabled:true
-            }
-        })
+    new Vue({
+      el: "#app-11",
+      data: {
+        isButtonDisabled: true
+      }
+    });
 
-
-       var app10 = new Vue({
-           el:"#app-10",
-           data: {
-               rawHtml:"<span style='color:red'>This should be red.</span>"
-           }
-       })
+    var app10 = new Vue({
+      el: "#app-10",
+      data: {
+        rawHtml: "<span style='color:red'>This should be red.</span>"
+      }
+    });
 
     // 原始 HTML
-            // v-html:输出html
-                // 双大括号会将数据解释为普通文本，而非 HTML 代码
+    // v-html:输出html
+    // 双大括号会将数据解释为普通文本，而非 HTML 代码
 
     // 文本
-        //  数据绑定 -> Mustache {{}}
-            //  v-once 只会绑定一次
-            //  <span v-once>Message: {{ msg }}</span>
-            var app9 = new Vue({
-                el: "#app-9",
-                data: {
-                    msg: "hello"
-                }
-            })
-            app9.msg = "change"
-
-   </script>
+    //  数据绑定 -> Mustache {{}}
+    //  v-once 只会绑定一次
+    //  <span v-once>Message: {{ msg }}</span>
+    var app9 = new Vue({
+      el: "#app-9",
+      data: {
+        msg: "hello"
+      }
+    });
+    app9.msg = "change";
+  </script>
 </html>

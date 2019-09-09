@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="example-1">
+      <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      </li>
+    </ul>
+
+    <ul id="v-for-object" class="demo">
+      <li v-for="value in object">
+        {{ value }}
+      </li>
+      <li v-for="(value, name) in object">{{ name }} : {{ value }}</li>
+      <li v-for="(value, name, index) in object">
+        {{ index }}. {{ name }}: {{ value }}
+      </li>
+    </ul>
+    表单输入绑定
+    <input id="msg" v-model.lazy="msg" />
+    <p>{{ msg }}</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      //-----------------------------表单输入绑定---------------------------------
+      new Vue({
+        el: "#msg",
+        data: {
+          msg: "2"
+        }
+      });
+      //-----------------------------列表渲染---------------------------------
+      //也可以用 v-for 来遍历一个对象的属性。
+      new Vue({
+        el: "#v-for-object",
+        data: {
+          object: {
+            title: "How to do lists in Vue",
+            author: "Jane Doe",
+            publishedAt: "2016-04-10"
+          }
+        }
+      });
+      var example1 = new Vue({
+        el: "#example-1",
+        data: {
+          parentMessage: "Parent",
+          items: [{ message: "Foo" }, { message: "Bar" }]
+        }
+      });
+    </script>
+  </body>
+</html>

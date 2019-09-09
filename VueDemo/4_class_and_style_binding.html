@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- active 这个 class 存在与否将取决于数据属性 isActive 的 truthiness。 -->
+    <button
+      id="app-1"
+      v-on:click="changeColor"
+      v-bind:class="{ active: isActive }"
+    >
+      hello,vue!!!
+    </button>
+    <button id="app-2" v-bind:class="changeColor">
+      hello,vue!!!22222222
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // ---------------------------绑定 HTML Class--------------------------------------
+      //绑定的数据对象不必内联定义在模板里：也可以在这里绑定一个返回对象的计算属性
+      new Vue({
+        el: "#app-2",
+        data: {
+          isActive: true
+        },
+        computed: {
+          changeColor: function() {
+            return {
+              active: new Date().getSeconds()%2 == 1
+            };
+          }
+        }
+      });
+      //对象语法
+      new Vue({
+        el: "#app-1",
+        data: {
+          isActive: true
+        },
+        methods: {
+          changeColor: function() {
+            if (this.isActive) {
+              this.isActive = false;
+            } else {
+              this.isActive = true;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
