@@ -1,0 +1,62 @@
+<!-- 动态路径参数 -->
+响应路由参数的变化
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<div id="app">
+  <p>
+    <router-link to="/user_id/007/name/peter?is_male=yes">/user/foo</router-link>
+    <router-link to="/department/java">/department/java</router-link>
+    <router-link to="/age/18">age_route_1</router-link>
+    <!-- 注意这里  to的 : -->
+    <router-link :to="{name:'namedRoute', params: {a: 18, b: 11}}">age_route_2</router-link>
+  </p>
+  <router-view></router-view>
+</div>
+
+<script>
+  // 1.定义组件
+  const User = {
+    // $route 代表当前路由
+    template: `<div>
+                    FullPath -> {{ $route.fullPath }}<br>
+                    Hash -> {{ $route.hash }}<br>
+                    Path -> {{ $route.path }}<br>
+                    Params -> {{ $route.params }}<br>
+                    User -> {{ $route.params.id }}<br>
+                    Name -> {{ $route.params.n }}<br>
+                    Sex -> is this guy a man ? {{ $route.query.is_male }}!
+                </div>`
+  };
+  const Department = {
+    template: `<div>Department -> {{ $route.params.dept }}</div>`
+  };
+  const NamedRoute = {
+    template: `<div>
+                    NamedRoute -> {{ $route.params.a }}
+                    NamedRoute -> {{ $route.params.b }}
+                </div>`
+  };
+  // 2.定义路由,路由和组件应有映射
+  const router = new VueRouter({
+    // : 代表后面跟的是参数,在$route.params中可以引用到,,由 <route-link> to 传入
+    routes: [
+      // 多个参数传递必须 key -> value 对应
+      // path 匹配规则
+      // https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js
+      // 以 / 开头的嵌套路径会被当作根路径。
+      { path: "/user_id/:id/name/:n", component: User, name: 'UserEntity' },
+      { path: "/department/:dept", component: Department },
+      { path: "/age/:a", component: NamedRoute},
+      { path: "/age/:a/:b", component: NamedRoute, name: 'namedRoute'}
+    ]
+  });
+  // 3.挂载
+  const app = new Vue({ router }).$mount("#app");
+</script>
+
+<style>
+  .router-link-active {
+    color: red;
+  }
+</style>
