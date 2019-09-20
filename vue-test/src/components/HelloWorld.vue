@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import store from '@/store'
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -24,9 +26,14 @@ export default {
   },
   methods: {
     addVal: function (val) {
-      this.items.push({label: this.newItem, isFinished: false})
+      let items = {label: this.newItem, isFinished: false}
+      this.items.push(items)
+      store.save(items)
       this.newItem = ''
     }
+  },
+  created () {
+    this.items = store.fetch()
   }
 }
 </script>
