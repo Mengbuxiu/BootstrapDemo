@@ -19,16 +19,7 @@ export default {
     return {
       title: 'Welcome to Your Vue.js App',
       newItem: '',
-      items: [
-        {
-          label: 'coding',
-          isFinished: false
-        },
-        {
-          label: 'working',
-          isFinished: true
-        }
-      ]
+      items: []
     }
   },
   methods: {
